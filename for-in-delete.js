@@ -154,7 +154,13 @@ for(let key in deleteTheBigNumbers) {
   Return the updated object.
 */
 
-
+const startsWithK = obj => {
+  for(let key in obj) {
+    if(key.startsWith('k')) {
+      delete obj[key]
+    }
+  } return obj
+}
 
 ////////// PROBLEM 8 //////////
 
@@ -167,4 +173,10 @@ for(let key in deleteTheBigNumbers) {
   (hint: the method includes() may be of use...)
 */
 
-//Code Here
+const hiddenTreasure = obj => {
+  for(let key in obj) {
+    if(!obj[key].includes('treasure')) {
+      delete obj[key]
+    }
+  } return obj
+}
