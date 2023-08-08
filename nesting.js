@@ -50,7 +50,16 @@ var employees = [
     3. Return the updated employee array.
 */
 
-//Code Here
+function employeeUpdater() {
+  return employees.filter(employee => {
+    if(employee.firstName === 'Lorie') {
+      employee.department = 'HR'
+    }
+    if(employee.firstName !== 'Theo') {
+      return employee
+    }
+  })
+}
 
 ////////// PROBLEM 2 //////////
 
@@ -132,7 +141,11 @@ var myCar = {
     3. Change atFaultForAccident from true to false.
 */
 
-//Code Here
+function recordCleaner() {
+  myCar.accidents.forEach((record, i) => {
+    myCar.accidents[i].atFaultForAccident = false
+  })
+}
 
 ////////// PROBLEM 5 //////////
 
@@ -153,4 +166,11 @@ var numsArr = [
     4. Return the modified numsArr.
 */
 
-//Code Here
+const looper = () => {
+  numsArr.forEach((arr, i) => {
+    arr.forEach((num,j) => {
+      num % 2 === 0 ? numsArr[i][j] = 'even' : numsArr[i][j] = 'odd'
+    })
+  })
+  return numsArr
+}

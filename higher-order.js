@@ -103,7 +103,7 @@ const monstersInYourPocket = [
 */
 
 //Code Here
-let myStrongest = monstersInYourPocket.filter((num) => monstersInYourPocket.CP > 200)
+let myStrongest = monstersInYourPocket.filter((guy) => guy.CP > 200)
 
 ////////// PROBLEM 5 //////////
 
@@ -126,7 +126,9 @@ const orders = [
   Use a higher order method to get all the order totals after adding in the sales tax (given to you as a tax rate, hint: you'll need to do some multiplication). Your answer should be an array of numbers, one total for each order.
 */
 
-let orderTotals = orders.map(num => orders.price *= orders.tax + 1)
+let orderTotals = orders.map(num => {
+  num.tax += 1
+  num.price *= num.tax })
 
 ////////// PROBLEM 6 //////////
 
