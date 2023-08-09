@@ -25,6 +25,8 @@ let evenNumbers = mixedNumbers.filter(num => {
    return num % 2 === 0
 }) 
 
+// let evenNumbers = mixedNumbers.filter(num => num % 2 === 0)
+
 ////////// PROBLEM 2 //////////
 
 // Do not edit the code below.
@@ -126,9 +128,8 @@ const orders = [
   Use a higher order method to get all the order totals after adding in the sales tax (given to you as a tax rate, hint: you'll need to do some multiplication). Your answer should be an array of numbers, one total for each order.
 */
 
-let orderTotals = orders.map(num => {
-  num.tax += 1
-  num.price *= num.tax })
+let orderTotals = orders.map(order => order.price * (1 + order.tax))
+  
 
 ////////// PROBLEM 6 //////////
 
@@ -161,4 +162,6 @@ const purchases = [
   Use a high order method to create to get the sum of bobsTotal.
 */
 
-let bobsTotal = purchases.reduce((acc, curr) => acc + curr)
+let bobsTotal = purchases.reduce((acc, curr) => {
+  return curr.owner === 'Bob' ? acc + curr.price : acc;
+}, 0);

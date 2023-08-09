@@ -11,34 +11,34 @@
 // Do not edit the code below.
 var employees = [
   {
-    firstName: 'Von',
-    lastName: 'Budibent',
-    email: 'vbudibent0@163.com',
-    department: 'Sales',
+    firstName: "Von",
+    lastName: "Budibent",
+    email: "vbudibent0@163.com",
+    department: "Sales",
   },
   {
-    firstName: 'Catherina',
-    lastName: 'Swalowe',
-    email: 'cswalowe1@example.com',
-    department: 'Engineering',
+    firstName: "Catherina",
+    lastName: "Swalowe",
+    email: "cswalowe1@example.com",
+    department: "Engineering",
   },
   {
-    firstName: 'Theo',
-    lastName: 'Trill',
-    email: 'ttrill2@sina.com.cn',
-    department: 'Services',
+    firstName: "Theo",
+    lastName: "Trill",
+    email: "ttrill2@sina.com.cn",
+    department: "Services",
   },
   {
-    firstName: 'Elsy',
-    lastName: 'McCrorie',
-    email: 'emccrorie3@netscape.com',
-    department: 'Legal',
+    firstName: "Elsy",
+    lastName: "McCrorie",
+    email: "emccrorie3@netscape.com",
+    department: "Legal",
   },
   {
-    firstName: 'Lorie',
-    lastName: 'Handsheart',
-    email: 'lhandsheart4@fotki.com',
-    department: 'Research and Development',
+    firstName: "Lorie",
+    lastName: "Handsheart",
+    email: "lhandsheart4@fotki.com",
+    department: "Research and Development",
   },
 ];
 // Do not edit the code above.
@@ -51,14 +51,14 @@ var employees = [
 */
 
 function employeeUpdater() {
-  return employees.filter(employee => {
-    if(employee.firstName === 'Lorie') {
-      employee.department = 'HR'
+  return employees.filter((employee) => {
+    if (employee.firstName === "Lorie") {
+      employee.department = "HR";
     }
-    if(employee.firstName !== 'Theo') {
-      return employee
+    if (employee.firstName !== "Theo") {
+      return employee;
     }
-  })
+  });
 }
 
 ////////// PROBLEM 2 //////////
@@ -75,21 +75,31 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
     3. Return the updated array.
 */
 
-//Code Here
+function removeDuplicates() {
+  workplaceAccidents.forEach((id, i) => {
+    for (let j = i + 1; j < workplaceAccidents.length; j++) {
+      if (id === workplaceAccidents[j]) {
+        workplaceAccidents.splice(j, 1);
+        j--;
+      }
+    }
+  });
+  return workplaceAccidents;
+}
 
 ////////// PROBLEM 3 //////////
 
 // Do not edit the code below.
 var cat = {
-  name: 'Fluffy',
+  name: "Fluffy",
   catFriends: [
     {
-      name: 'Grumpy',
-      activities: ['be grumpy', 'eat food'],
+      name: "Grumpy",
+      activities: ["be grumpy", "eat food"],
     },
     {
-      name: 'Lazy Bones',
-      activities: ['sleep', 'pre-sleep naps'],
+      name: "Lazy Bones",
+      activities: ["sleep", "pre-sleep naps"],
     },
   ],
 };
@@ -109,23 +119,23 @@ var fluffy2ndFriend;
 
 // Do not edit the code below.
 var myCar = {
-  make: 'Toyota',
-  model: 'Corolla',
+  make: "Toyota",
+  model: "Corolla",
   year: 1992,
   accidents: [
     {
-      date: '3/15/93',
-      damage: '$5,000',
+      date: "3/15/93",
+      damage: "$5,000",
       atFaultForAccident: true,
     },
     {
-      date: '7/4/98',
-      damage: '$2,200',
+      date: "7/4/98",
+      damage: "$2,200",
       atFaultForAccident: true,
     },
     {
-      date: '6/22/99',
-      damage: '$7,900',
+      date: "6/22/99",
+      damage: "$7,900",
       atFaultForAccident: true,
     },
   ],
@@ -143,8 +153,8 @@ var myCar = {
 
 function recordCleaner() {
   myCar.accidents.forEach((record, i) => {
-    myCar.accidents[i].atFaultForAccident = false
-  })
+    myCar.accidents[i].atFaultForAccident = false;
+  });
 }
 
 ////////// PROBLEM 5 //////////
@@ -166,11 +176,13 @@ var numsArr = [
     4. Return the modified numsArr.
 */
 
-const looper = () => {
-  numsArr.forEach((arr, i) => {
-    arr.forEach((num,j) => {
-      num % 2 === 0 ? numsArr[i][j] = 'even' : numsArr[i][j] = 'odd'
-    })
-  })
-  return numsArr
-}
+// const looper = () => {
+//   numsArr.forEach((arr, i) => {
+//     arr.forEach((num, j) => {
+//       num % 2 === 0 ? (numsArr[i][j] = "even") : (numsArr[i][j] = "odd");
+//     });
+//   });
+//   return numsArr;
+// };
+
+const looper = () => numsArr.map(arr => arr.map(num => num % 2 === 0? "even": "odd"));
